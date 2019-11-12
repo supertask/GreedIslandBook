@@ -130,7 +130,7 @@ Material:
     - _BaseColorPower: 0.15
     - _BlendMode: 0
     - _BookTransparent: 0.7
-    - _ClipPercent: 0.122
+    - _ClipPercent: 0.15
     - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2

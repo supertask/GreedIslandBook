@@ -3,15 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[ExecuteInEditMode]
-public class CardTiling : MonoBehaviour
+public class CardsModel : MonoBehaviour
 {
     public List<Texture2D> cardImages;
     public List<string> cardDescriptions;
+
+    [TextArea] public string cardOrderLines;
+    /*
+    0,1,2,3,4,5,6,7,8,9,13,13
+    10,11,12,13,13,13,13,13,13,13,13,13
+    13,13,13,13,13,13,13,13,13,13,13,13
+    */
+
     public GameObject book;
     public GameObject cardOrigin;
 
+    private List<List<int>> cardOrderMap;
+    private int currPageNum;
+    private List<Vector3> sphereVertices;
+
     void Start()
     {
+        this.currPageNum = 0;
+        this.cardOrderMap = new List<List<int>>();
+        foreach (string cardOrderLine  in cardOrderLines.Split('\n')) {
+            List<int> imageIndexes = new List<int>();
+            foreach (string imageIndex in cardOrderLine.Split(',')) {
+                imageIndexes.Add(int.Parse(imageIndex));
+            }
+            this.cardOrderMap.Add(imageIndexes);
+        }
+
         Vector2 thetaMinMax = new Vector2(
             Mathf.Lerp(Mathf.PI * 0.5f, - Mathf.PI * 0.5f, 0.75f),
             Mathf.Lerp(Mathf.PI * 0.5f, - Mathf.PI * 0.5f, 0.65f)
@@ -21,14 +43,18 @@ public class CardTiling : MonoBehaviour
             Mathf.Lerp(0.0f, 2.0f * Mathf.PI, 0.25f + 0.08f)
         ); //横
         //slices=横，stacksが縦．数字が大きいとカードの幅が狭まる
-        List<List<Vector3>> sphereVertices = Sphere(1.0f, 38, 18, thetaMinMax, phiMinMax);
+        this.sphereVertices = Sphere(1.0f, 38, 18, thetaMinMax, phiMinMax);
+        this.createCards();
+    }
+
+    void Update() {
     }
 
     //http://apparat-engine.blogspot.com/2013/04/procedural-meshes-sphere.html
     // x = radius * Cos(theta) * Cos(phi)
     // y = radius* Cos(theta) * Sin(phi)
     // z = radius* Sin(theta)
-    public List<List<Vector3>> Sphere(float radius, int slices, int stacks, Vector2 thetaMinMax, Vector2 phiMinMax)
+    public List<Vector3> Sphere(float radius, int slices, int stacks, Vector2 thetaMinMax, Vector2 phiMinMax)
     {
         int numVerticesPerRow = slices + 1;
         int numVerticesPerColumn = stacks + 1;
@@ -40,11 +66,12 @@ public class CardTiling : MonoBehaviour
 
         float verticalAngularStride = (float)Mathf.PI / (float)stacks;
         float horizontalAngularStride = ((float)Mathf.PI * 2) / (float)slices;
-        List<List<Vector3>> vertices = new List<List<Vector3>>();
+        //List<List<Vector3>> vertices = new List<List<Vector3>>();
+        List<Vector3> vertices = new List<Vector3>();
 
         for (int verticalIt = 0; verticalIt < numVerticesPerColumn; verticalIt++)
         {
-            List<Vector3> vs = new List<Vector3>();
+            //List<Vector3> vs = new List<Vector3>();
 
             // beginning on top of the sphere:
             theta = ((float)Mathf.PI / 2.0f) - verticalAngularStride * verticalIt;
@@ -60,43 +87,64 @@ public class CardTiling : MonoBehaviour
                     float y = radius * (float)Mathf.Cos(theta) * (float)Mathf.Sin(phi);
                     float z = radius * (float)Mathf.Sin(theta);
                     Vector3 vert = new Vector3(x, z, y);
-                    vs.Add(vert);
-                    this.createCard(vert);
+                    vertices.Add(vert);
                 }
             }
 
-            if (vs.Count > 0) { vertices.Add(vs); }
+            //if (vs.Count > 0) { vertices.Add(vs); }
         }
         return vertices;
     }
 
-    public void createCard(Vector3 vert)
+    private void createCards()
+    {
+        for (int i = 0; i < this.sphereVertices.Count; i++) {
+            this.createCard(this.sphereVertices[i], i);
+        }
+    }
+
+    private void createCard(Vector3 relatedPos, int cardIndex)
     {
             //位置調整
             GameObject obj = Instantiate(cardOrigin) as GameObject;
-            obj.transform.position = this.book.transform.position + vert;
+            obj.transform.position = this.book.transform.position + relatedPos;
             obj.transform.LookAt(this.transform);
             obj.transform.parent = this.transform;
+            this.replaceCard(obj, relatedPos, cardIndex);
+    }
 
+    public void replaceCards()
+    {
+        int i = 0;
+        foreach (Transform child in this.transform) {
+            this.replaceCard(child.gameObject, this.sphereVertices[i], i);
+            i++;
+        }
+    }
+
+    private void replaceCard(GameObject obj, Vector3 relatedPos, int cardIndex) {
             //Shadering
             Shader shader; Material mat;
-            int rand_i = Random.Range(0, cardImages.Count);
+            int image_i = this.cardOrderMap[this.currPageNum][cardIndex];
 
             //カード画像
             GameObject cardImageObj = obj.transform.Find("CardImage").gameObject;
-        Debug.Log(cardImageObj.name);
             shader = cardImageObj.GetComponent<MeshRenderer>().material.shader;
             mat = new Material(shader);
-            mat.SetTexture("_MainImage", cardImages[rand_i]);
+            mat.SetTexture("_MainImage", cardImages[image_i]);
             cardImageObj.GetComponent<MeshRenderer>().material = mat;
 
             //カード説明文
             GameObject cardDescriptionObj = obj.transform.Find("CardDescription").gameObject;
-            cardDescriptionObj.GetComponent<TextMesh>().text = cardDescriptions[rand_i];
+            cardDescriptionObj.GetComponent<TextMesh>().text = cardDescriptions[image_i];
     }
 
-    void Update()
-    {
-        
+    public void nextPage() {
+        this.currPageNum = (this.currPageNum + 1) % cardOrderMap.Count;
     }
+
+    public void previousPage() {
+        this.currPageNum = (cardOrderMap.Count + this.currPageNum - 1) % cardOrderMap.Count;
+    }
+
 }
