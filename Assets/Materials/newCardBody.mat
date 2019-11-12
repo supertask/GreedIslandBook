@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: book
-  m_Shader: {fileID: -6465566751694194690, guid: a68fd05a18654b64d9dbbee6ba97f46b,
+  m_Name: newCardBody
+  m_Shader: {fileID: -6465566751694194690, guid: fff807590b8c9774b9e909aeec56a90c,
     type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHA _BLENDMODE_PRESERVE_SPECULAR_LIGHTING _ENABLE_FOG_ON_TRANSPARENT
     _NORMALMAP_TANGENT_SPACE _SURFACE_TYPE_TRANSPARENT
@@ -180,7 +180,7 @@ Material:
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
-    - _HorizontalClipPercent: 0.02
+    - _HorizontalClipPercent: 0.048
     - _HorizontalVoronoiInterpolation: 0.05
     - _HorizontalVoronoiU: 0.872
     - _InvTilingScale: 1
@@ -244,7 +244,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.6726169, b: 1.259508, a: 1}
+    - _BaseColor: {r: 0, g: 1.4281733, b: 2.6390157, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
