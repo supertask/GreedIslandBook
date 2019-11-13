@@ -8,11 +8,17 @@ public class BookPlayableBehaviour : PlayableBehaviour
 {
     public GameObject bookBodyObj;
     public GameObject bookUnderNavObj;
-    private MeshRenderer bookBodyMat;
+
+    public bool isVerticalAnim;
+    public float maxVerticalClipPercent, minVerticalClipPercent;
+    public float maxHorizontalClipPercent, minHorizontalClipPercent;
+    public float maxNavPercent, minNavPercent;
 
     // Called when the owning graph starts playing
     public override void OnGraphStart(Playable playable) {
-        //this.bookBodyMat = bookBodyObj.GetComponent<MeshRenderer>().material;
+        this.bookBodyObj.GetComponent<MeshRenderer>().material.SetFloat("_VerticalClipPercent", 0.48f);
+        this.bookBodyObj.GetComponent<MeshRenderer>().material.SetFloat("_HorizontalClipPercent", 0.18f);
+        this.bookUnderNavObj.GetComponent<MeshRenderer>().material.SetFloat("_ClipPercent", 0.24f);
     }
 
     // Called when the owning graph stops playing
@@ -32,16 +38,17 @@ public class BookPlayableBehaviour : PlayableBehaviour
     // Called each frame while the state is set to Play
     public override void PrepareFrame(Playable playable, FrameData info)
     {
-        /*
         float progress = Mathf.Clamp01((float)(playable.GetTime() / playable.GetDuration())); //0.0 - 1.0
         if (this.isVerticalAnim) {
             float vClipPercent = Mathf.Lerp(this.maxVerticalClipPercent, this.minVerticalClipPercent, progress);
-            this.bookBodyMat.SetFloat("_VerticalClipPercent", vClipPercent);
+            this.bookBodyObj.GetComponent<MeshRenderer>().material.SetFloat("_VerticalClipPercent", vClipPercent);
+
+            float nClipPercent = Mathf.Lerp(this.maxNavPercent, this.minNavPercent, progress);
+            this.bookUnderNavObj.GetComponent<MeshRenderer>().material.SetFloat("_ClipPercent", nClipPercent);
         }
         else {
             float hClipPercent = Mathf.Lerp(this.maxHorizontalClipPercent, this.minHorizontalClipPercent, progress);
-            this.bookBodyMat.SetFloat("_HorizontalClipPercent", hClipPercent);
+            this.bookBodyObj.GetComponent<MeshRenderer>().material.SetFloat("_HorizontalClipPercent", hClipPercent);
         }
-        */
     }
 }
