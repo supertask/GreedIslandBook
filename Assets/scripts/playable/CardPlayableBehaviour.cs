@@ -40,11 +40,13 @@ public class CardPlayableBehaviour : PlayableBehaviour
     public override void PrepareFrame(Playable playable, FrameData info)
     {
         if (isReplacingCard) { return; }
+        Debug.Log("card");
 
         float progress = Mathf.Clamp01((float)(playable.GetTime() / playable.GetDuration())); //0.0 - 1.0
         if (this.isScalingUp) {
             float nextY = Mathf.Lerp(0.0f, this.maxScaleY, progress);
             this.scaleCardY(nextY);
+            Debug.Log("scaling card!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else {
             float nextY = Mathf.Lerp(this.maxScaleY, 0.0f, progress);
@@ -55,9 +57,7 @@ public class CardPlayableBehaviour : PlayableBehaviour
     private void scaleCardY(float nextY)
     {
         foreach (Transform child in this.cardsModelObj.transform) {
-            Vector3 s = child.localScale;
-            s.y = nextY;
-            child.localScale = s;
+            child.localScale = new Vector3(child.localScale.x, nextY, child.localScale.z);
         }
     }
 }

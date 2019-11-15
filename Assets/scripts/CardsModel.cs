@@ -49,7 +49,12 @@ public class CardsModel : MonoBehaviour
     }
 
     void Update() {
-        this.moveCardsToBook();
+        //this.moveCardsToBook();
+        /*
+        foreach(Transform child in this.transform) {
+            Debug.Log("すけーる：" + child.localScale);
+        }
+        */
     }
 
 
@@ -108,15 +113,15 @@ public class CardsModel : MonoBehaviour
 
     private void createCard(Vector3 relatedPos, int cardIndex)
     {
-            //位置調整
-            GameObject obj = Instantiate(cardOrigin) as GameObject;
-            obj.transform.position = this.book.transform.position + relatedPos;
-            obj.transform.LookAt(this.transform);
-            obj.transform.parent = this.transform;
-            Vector3 scale = obj.transform.localScale;
-            scale.x = 0.0f;
-            obj.transform.localScale = scale;
-            this.replaceCard(obj, relatedPos, cardIndex);
+        //位置調整
+        GameObject obj = Instantiate(cardOrigin) as GameObject;
+        obj.transform.position = this.book.transform.position + relatedPos;
+        obj.transform.LookAt(this.transform);
+        obj.transform.parent = this.transform;
+        Vector3 scale = obj.transform.localScale;
+        scale.y = 0.0f;
+        obj.transform.localScale = scale;
+        this.replaceCard(obj, relatedPos, cardIndex);
     }
 
     public void moveCardsToBook() {
@@ -137,20 +142,20 @@ public class CardsModel : MonoBehaviour
     }
 
     private void replaceCard(GameObject obj, Vector3 relatedPos, int cardIndex) {
-            //Shadering
-            Shader shader; Material mat;
-            int image_i = this.cardOrderMap[this.currPageNum][cardIndex];
+        //Shadering
+        Shader shader; Material mat;
+        int image_i = this.cardOrderMap[this.currPageNum][cardIndex];
 
-            //カード画像
-            GameObject cardImageObj = obj.transform.Find("CardImage").gameObject;
-            shader = cardImageObj.GetComponent<MeshRenderer>().material.shader;
-            mat = new Material(shader);
-            mat.SetTexture("_MainImage", cardImages[image_i]);
-            cardImageObj.GetComponent<MeshRenderer>().material = mat;
+        //カード画像
+        GameObject cardImageObj = obj.transform.Find("CardImage").gameObject;
+        shader = cardImageObj.GetComponent<MeshRenderer>().material.shader;
+        mat = new Material(shader);
+        mat.SetTexture("_MainImage", cardImages[image_i]);
+        cardImageObj.GetComponent<MeshRenderer>().material = mat;
 
-            //カード説明文
-            GameObject cardDescriptionObj = obj.transform.Find("CardDescription").gameObject;
-            cardDescriptionObj.GetComponent<TextMesh>().text = cardDescriptions[image_i];
+        //カード説明文
+        GameObject cardDescriptionObj = obj.transform.Find("CardDescription").gameObject;
+        cardDescriptionObj.GetComponent<TextMesh>().text = cardDescriptions[image_i];
     }
 
     public void nextPage() {

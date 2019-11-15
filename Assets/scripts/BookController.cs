@@ -74,15 +74,18 @@ public class BookController : MonoBehaviour
                     }
                 }
                 else if (hands[HandUtil.RIGHT] != null) {
-                    Finger indexFinger = hands[HandUtil.LEFT].Fingers[(int)FingerType.TYPE_INDEX];
+                    Finger indexFinger = hands[HandUtil.RIGHT].Fingers[(int)FingerType.TYPE_INDEX];
                     if (indexFinger.IsExtended) {
                         activeIndexFinger = indexFinger;
                     }
                 }
 
                 if (activeIndexFinger != null && this.openingBookDirector.state == PlayState.Paused) {
-                    //TODO(Tasuku): 位置を移動させる
-                    this.transform.parent.position = HandUtil.ToVector3(activeIndexFinger.TipPosition);
+                    //ブックのコリダーのワールド座標を
+                    Vector3 relatedPos = this.transform.TransformPoint(this.GetComponent<BoxCollider>().center);
+                    Debug.Log("relatedPos: ");
+                    Debug.Log(relatedPos);
+                    this.transform.parent.position = HandUtil.ToVector3(activeIndexFinger.TipPosition) - relatedPos;
                     this.cardModel.moveCardsToBook();
 
                     this.bookBodyObj.GetComponent<MeshRenderer>().enabled = true;
