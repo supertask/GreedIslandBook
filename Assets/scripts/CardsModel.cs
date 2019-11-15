@@ -21,6 +21,7 @@ public class CardsModel : MonoBehaviour
     private List<List<int>> cardOrderMap;
     private int currPageNum;
     private List<Vector3> sphereVertices;
+    //private List<Vector3> cardObjs;
 
     void Start()
     {
@@ -48,7 +49,9 @@ public class CardsModel : MonoBehaviour
     }
 
     void Update() {
+        this.moveCardsToBook();
     }
+
 
     //http://apparat-engine.blogspot.com/2013/04/procedural-meshes-sphere.html
     // x = radius * Cos(theta) * Cos(phi)
@@ -110,7 +113,18 @@ public class CardsModel : MonoBehaviour
             obj.transform.position = this.book.transform.position + relatedPos;
             obj.transform.LookAt(this.transform);
             obj.transform.parent = this.transform;
+            Vector3 scale = obj.transform.localScale;
+            scale.x = 0.0f;
+            obj.transform.localScale = scale;
             this.replaceCard(obj, relatedPos, cardIndex);
+    }
+
+    public void moveCardsToBook() {
+        int i = 0;
+        foreach (Transform child in this.transform) {
+            child.position = this.book.transform.position + this.sphereVertices[i];
+            i++;
+        }
     }
 
     public void replaceCards()
