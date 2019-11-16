@@ -5,10 +5,6 @@ using UnityEngine;
 using Leap;
 using Leap.Unity;
 
-public enum HandActionType: int { JUST_OPENED, JUST_CLOSED }
-public enum FingerActionType: int { JUST_OPENED, JUST_CLOSED }
-public enum HandStatus : int { OPEN, CLOSE, UNKNOWN }
-
 public class HandUtil
 {
     public static int LEFT = 0;
@@ -18,6 +14,11 @@ public class HandUtil
     private bool[,] isOpenedPreviousFingers;
     private int[] handIds;
     private Transform playerTransform;
+
+    public enum HandActionType: int { JUST_OPENED, JUST_CLOSED }
+    public enum FingerActionType: int { JUST_OPENED, JUST_CLOSED }
+    public enum HandStatus : int { OPEN, CLOSE, UNKNOWN }
+
 
     [Tooltip("Velocity (m/s) move toward ")]
     public float smallestVelocity = 0.4f;
@@ -71,7 +72,7 @@ public class HandUtil
      * Check out GrabStreangth variable of Hand class
      * https://leapmotion.github.io/UnityModules/class_leap_1_1_hand.html#ae3b86d4d13139d772be092b6838ee9b5
      */
-    private static HandStatus GetHandStatus(Hand hand)
+    public static HandStatus GetHandStatus(Hand hand)
     {
         //The strength is zero for an open hand
         if (hand.GrabStrength == 0.0f) { return HandStatus.OPEN; }

@@ -99,7 +99,7 @@ public class BookController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Hit on book!");
+        Debug.Log("Hit on book!");
         //Debug.Log(other.gameObject.name + ", " + leftHandObj.name);
         //Debug.Log(other.gameObject.name + ", " + rightHandObj.name);
         if (other.gameObject == leftHandObj) {
@@ -115,7 +115,7 @@ public class BookController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        //Debug.Log("Exit from book!");
+        Debug.Log("Exit from book!");
     }
 
     //
