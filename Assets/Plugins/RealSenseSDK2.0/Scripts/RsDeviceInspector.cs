@@ -11,6 +11,7 @@ public class RsDeviceInspector : MonoBehaviour
 
     public bool streaming;
     public Device device;
+    public StreamProfileList streams;
     public readonly Dictionary<string, Sensor> sensors = new Dictionary<string, Sensor>();
     public readonly Dictionary<string, List<IOption>> sensorOptions = new Dictionary<string, List<IOption>>();
 
@@ -21,16 +22,12 @@ public class RsDeviceInspector : MonoBehaviour
 
     private IEnumerator WaitForDevice()
     {
-        while (true)
-        {
-            yield return new WaitUntil(() => (rsdevice = GetComponent<RsDevice>()) != null);
-            // rsdevice.OnStart += onStartStreaming;
-            rsdevice.OnStop += onStopStreaming;
+        yield return new WaitUntil(() => (rsdevice = GetComponent<RsDevice>()) != null);
+        // rsdevice.OnStart += onStartStreaming;
+        rsdevice.OnStop += onStopStreaming;
 
-            yield return new WaitUntil(() => rsdevice.Streaming);
+        if(rsdevice.Streaming)
             onStartStreaming(rsdevice.ActiveProfile);
-            yield return new WaitWhile(() => rsdevice.Streaming);
-        }
     }
 
     private void onStopStreaming()
@@ -41,6 +38,12 @@ public class RsDeviceInspector : MonoBehaviour
         {
             device.Dispose();
             device = null;
+        }
+
+        if (streams != null)
+        {
+            streams.Dispose();
+            streams = null;
         }
 
         foreach (var s in sensors)
@@ -56,11 +59,15 @@ public class RsDeviceInspector : MonoBehaviour
     private void onStartStreaming(PipelineProfile profile)
     {
         device = profile.Device;
-        foreach (var s in device.Sensors)
+        streams = profile.Streams;
+        using (var sensorList = device.Sensors)
         {
-            var sensorName = s.Info[CameraInfo.Name];
-            sensors.Add(sensorName, s);
-            sensorOptions.Add(sensorName, s.Options.ToList());
+            foreach (var s in sensorList)
+            {
+                var sensorName = s.Info[CameraInfo.Name];
+                sensors.Add(sensorName, s);
+                sensorOptions.Add(sensorName, s.Options.ToList());
+            }
         }
         streaming = true;
     }

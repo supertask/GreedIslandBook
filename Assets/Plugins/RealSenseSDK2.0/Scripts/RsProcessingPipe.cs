@@ -41,7 +41,7 @@ public class RsProcessingPipe : RsFrameProvider
 
     private void OnSourceStart(PipelineProfile activeProfile)
     {
-        Source.OnNewSample += _block.Process;
+        Source.OnNewSample += _block.ProcessFrame;
         ActiveProfile = activeProfile;
         Streaming = true;
         var h = OnStart;
@@ -54,7 +54,7 @@ public class RsProcessingPipe : RsFrameProvider
         if (!Streaming)
             return;
         if (_block != null)
-            Source.OnNewSample -= _block.Process;
+            Source.OnNewSample -= _block.ProcessFrame;
         Streaming = false;
         var h = OnStop;
         if (h != null)

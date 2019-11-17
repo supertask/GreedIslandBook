@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
 using Intel.RealSense;
@@ -70,7 +73,8 @@ public class RsDevice : RsFrameProvider
         using (var cfg = DeviceConfiguration.ToPipelineConfig())
             ActiveProfile = m_pipeline.Start(cfg);
 
-        DeviceConfiguration.Profiles = ActiveProfile.Streams.Select(RsVideoStreamRequest.FromProfile).ToArray();
+        using (var activeStreams = ActiveProfile.Streams)
+            DeviceConfiguration.Profiles = activeStreams.Select(RsVideoStreamRequest.FromProfile).ToArray();
 
         if (processMode == ProcessMode.Multithread)
         {
@@ -105,21 +109,21 @@ public class RsDevice : RsFrameProvider
         if (Streaming && OnStop != null)
             OnStop();
 
-        if (ActiveProfile != null)
-        {
-            ActiveProfile.Dispose();
-            ActiveProfile = null;
-        }
-
         if (m_pipeline != null)
         {
             // if (Streaming)
-            // m_pipeline.Stop();
+                // m_pipeline.Stop();
             m_pipeline.Dispose();
             m_pipeline = null;
         }
 
         Streaming = false;
+
+        if (ActiveProfile != null)
+        {
+            ActiveProfile.Dispose();
+            ActiveProfile = null;
+        }
     }
 
     void OnDestroy()
@@ -127,17 +131,11 @@ public class RsDevice : RsFrameProvider
         // OnStart = null;
         OnStop = null;
 
-        if (ActiveProfile != null)
-        {
-            ActiveProfile.Dispose();
-            ActiveProfile = null;
-        }
-
         if (m_pipeline != null)
-        {
             m_pipeline.Dispose();
-            m_pipeline = null;
-        }
+        m_pipeline = null;
+
+        // Instance = null;
     }
 
     private void RaiseSampleEvent(Frame frame)
@@ -157,7 +155,8 @@ public class RsDevice : RsFrameProvider
         while (!stopEvent.WaitOne(0))
         {
             using (var frames = m_pipeline.WaitForFrames())
-                RaiseSampleEvent(frames);
+            using (var frame = frames.AsFrame())
+                RaiseSampleEvent(frame);
         }
     }
 
@@ -173,7 +172,10 @@ public class RsDevice : RsFrameProvider
         if (m_pipeline.PollForFrames(out frames))
         {
             using (frames)
-                RaiseSampleEvent(frames);
+            using (var frame = frames.AsFrame())
+            {
+                RaiseSampleEvent(frame);
+            }
         }
     }
 

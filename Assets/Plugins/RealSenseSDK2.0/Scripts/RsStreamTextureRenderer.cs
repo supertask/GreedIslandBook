@@ -36,27 +36,6 @@ public class RsStreamTextureRenderer : MonoBehaviour
         }
     }
 
-    private static int BPP(TextureFormat format)
-    {
-        switch (format)
-        {
-            case TextureFormat.ARGB32:
-            case TextureFormat.BGRA32:
-            case TextureFormat.RGBA32:
-                return 32;
-            case TextureFormat.RGB24:
-                return 24;
-            case TextureFormat.R16:
-                return 16;
-            case TextureFormat.R8:
-            case TextureFormat.Alpha8:
-                return 8;
-            default:
-                throw new ArgumentException("unsupported format {0}", format.ToString());
-
-        }
-    }
-
     public RsFrameProvider Source;
 
     [System.Serializable]
@@ -100,18 +79,33 @@ public class RsStreamTextureRenderer : MonoBehaviour
     protected void OnStopStreaming()
     {
         Source.OnNewSample -= OnNewSample;
+        // RsDevice.Instance.OnNewSampleSet -= OnNewSampleSet;
+
+        // e.Set();
+
         if (q != null)
         {
+            // foreach (var f in q)
+            // f.Dispose();
+
             q.Dispose();
             q = null;
         }
     }
 
+
+
+
     public void OnStartStreaming(PipelineProfile activeProfile)
     {
         q = new FrameQueue(1);
+
         matcher = new Predicate<Frame>(Matches);
+
         Source.OnNewSample += OnNewSample;
+        // e.Reset();
+
+        // RsDevice.Instance.OnNewSampleSet += OnNewSampleSet;
     }
 
     private bool Matches(Frame f)
@@ -126,7 +120,8 @@ public class RsStreamTextureRenderer : MonoBehaviour
         {
             if (frame.IsComposite)
             {
-                using (var fs = frame.As<FrameSet>())
+                using (var fs = FrameSet.FromFrame(frame))
+                // using (var f = fs[_stream, _format, _streamIndex])
                 using (var f = fs.FirstOrDefault(matcher))
                 {
                     if (f != null)
@@ -135,6 +130,13 @@ public class RsStreamTextureRenderer : MonoBehaviour
                 }
             }
 
+            // using (var p = frame.Profile)
+            // {
+            //     if (p.Stream != _stream || p.Format != _format || p.Index != _streamIndex)
+            //     {
+            //         return;
+            //     }
+            // }
             if (!matcher(frame))
                 return;
 
@@ -145,7 +147,7 @@ public class RsStreamTextureRenderer : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogException(e);
+            Debug.LogException(e, this);
             // throw;
         }
 
@@ -153,13 +155,16 @@ public class RsStreamTextureRenderer : MonoBehaviour
 
     bool HasTextureConflict(VideoFrame vf)
     {
-        return !texture ||
-            texture.width != vf.Width ||
-            texture.height != vf.Height ||
-            BPP(texture.format) != vf.BitsPerPixel;
+        using (var p = vf.Profile)
+        {
+            return !texture ||
+                texture.width != vf.Width ||
+                texture.height != vf.Height ||
+                Convert(p.Format) != texture.format;
+        }
     }
 
-    protected void LateUpdate()
+    protected void Update()
     {
         if (q != null)
         {
@@ -179,15 +184,11 @@ public class RsStreamTextureRenderer : MonoBehaviour
                 Destroy(texture);
             }
 
-            using (var p = frame.Profile) {
-                bool linear = (QualitySettings.activeColorSpace != ColorSpace.Linear)
-                    || (p.Stream != Stream.Color && p.Stream != Stream.Infrared);
-                texture = new Texture2D(frame.Width, frame.Height, Convert(p.Format), false, linear)
-                {
-                    wrapMode = TextureWrapMode.Clamp,
-                    filterMode = filterMode
-                };
-            }
+            texture = new Texture2D(frame.Width, frame.Height, Convert(frame.Profile.Format), false, true)
+            {
+                wrapMode = TextureWrapMode.Clamp,
+                filterMode = filterMode
+            };
 
             textureBinding.Invoke(texture);
         }

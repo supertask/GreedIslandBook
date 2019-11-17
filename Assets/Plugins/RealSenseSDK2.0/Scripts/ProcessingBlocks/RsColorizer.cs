@@ -14,8 +14,7 @@ public class RsColorizer : RsProcessingBlock
         Cold,
         Warm,
         Quantized,
-        Pattern,
-        Hue
+        Pattern
     }
 
     public enum VisualPreset
