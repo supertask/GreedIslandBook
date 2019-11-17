@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82cd92ffc29383742932b27ca414c80f, type: 3}
-  m_Name: Playable Track
+  m_Name: Playable Track Book
   m_EditorClassIdentifier: 
   m_Version: 3
   m_AnimClip: {fileID: 0}
@@ -88,7 +88,73 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0.45
+    m_Start: 0.5833333333333334
+    m_ClipIn: 0
+    m_Asset: {fileID: 749293328914379562}
+    m_Duration: 0.25
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -2958320455984234437}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: BookPlayableAsset
+  - m_Version: 1
+    m_Start: 0.8333333333333334
+    m_ClipIn: 0
+    m_Asset: {fileID: -5573578021560836050}
+    m_Duration: 0.2499999999999999
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -2958320455984234437}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: BookPlayableAsset
+  - m_Version: 1
+    m_Start: 1.15
     m_ClipIn: 0
     m_Asset: {fileID: 5467698752595598938}
     m_Duration: 0.14999999999999997
@@ -123,8 +189,8 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: 749293328914379562}
-    m_Duration: 0.16666666666666666
+    m_Asset: {fileID: 3646092970542031388}
+    m_Duration: 0.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2958320455984234437}
     m_EaseInDuration: 0
@@ -157,7 +223,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -170,40 +254,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: BookPlayableAsset
-  - m_Version: 1
-    m_Start: 0.16666666666666666
-    m_ClipIn: 0
-    m_Asset: {fileID: -5573578021560836050}
-    m_Duration: 0.23333333333333336
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -2958320455984234437}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: BookPlayableAsset
+    m_DisplayName: SmokePlayableAsset
   m_Markers:
     m_Objects: []
 --- !u!114 &-1740605087110383541
@@ -380,6 +431,21 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &3646092970542031388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25fbe8bd16691046a84e0ef824bd22c, type: 3}
+  m_Name: SmokePlayableAsset
+  m_EditorClassIdentifier: 
+  smokeObj:
+    exposedName: 6343bacc194f6ee468871fd138d19564
+    defaultValue: {fileID: 0}
 --- !u!114 &5467698752595598938
 MonoBehaviour:
   m_ObjectHideFlags: 1

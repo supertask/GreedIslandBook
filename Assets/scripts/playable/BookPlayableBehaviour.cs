@@ -16,9 +16,6 @@ public class BookPlayableBehaviour : PlayableBehaviour
 
     // Called when the owning graph starts playing
     public override void OnGraphStart(Playable playable) {
-        this.bookBodyObj.GetComponent<MeshRenderer>().material.SetFloat("_VerticalClipPercent", 0.48f);
-        this.bookBodyObj.GetComponent<MeshRenderer>().material.SetFloat("_HorizontalClipPercent", 0.18f);
-        this.bookUnderNavObj.GetComponent<MeshRenderer>().material.SetFloat("_ClipPercent", 0.24f);
     }
 
     // Called when the owning graph stops playing
@@ -28,6 +25,8 @@ public class BookPlayableBehaviour : PlayableBehaviour
     // Called when the state of the playable is set to Play
     public override void OnBehaviourPlay(Playable playable, FrameData info)
     {
+        this.bookBodyObj.GetComponent<MeshRenderer>().enabled = true;
+        this.bookUnderNavObj.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Called when the state of the playable is set to Paused

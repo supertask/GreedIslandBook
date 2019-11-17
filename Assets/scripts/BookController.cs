@@ -15,6 +15,7 @@ public class BookController : MonoBehaviour
     private CardsModel cardModel;
     private PlayableDirector cardSlideDirector;
 
+    public GameObject smokeObj;
     public GameObject bookBodyObj;
     public GameObject bookUnderNavObj;
     public PlayableDirector openingBookDirector;
@@ -81,17 +82,39 @@ public class BookController : MonoBehaviour
                 }
 
                 if (activeIndexFinger != null && this.openingBookDirector.state == PlayState.Paused) {
-                    //ブックのコリダーのワールド座標を
+                    //ブックのコリダーのワールド座標
+                    Vector3 fingerTipPos = HandUtil.ToVector3(activeIndexFinger.TipPosition);
+                    Vector3 fingerDir = HandUtil.ToVector3(activeIndexFinger.Direction);
+
+                    Vector3 marginPos = this.GetComponent<BoxCollider>().size / 2.0f;
+                    marginPos.x = 0.0f;
                     Vector3 relatedPos = this.transform.TransformPoint(this.GetComponent<BoxCollider>().center);
-                    Debug.Log("relatedPos: ");
-                    Debug.Log(relatedPos);
-                    this.transform.parent.position = HandUtil.ToVector3(activeIndexFinger.TipPosition) - relatedPos;
+                    this.transform.parent.position = fingerTipPos - relatedPos + marginPos;
                     this.cardModel.moveCardsToBook();
 
-                    this.bookBodyObj.GetComponent<MeshRenderer>().enabled = true;
-                    this.bookUnderNavObj.GetComponent<MeshRenderer>().enabled = true;
+                    //Vector3 viewDir = fingerTipPos - playerHeadTransform.position;
+                    Vector3 orthogonalDir = new Vector3(); //直行ベクトル
+                    Vector3 crossDir = new Vector3(); //外積
+                    Vector3.OrthoNormalize(ref fingerDir, ref orthogonalDir, ref crossDir);
+                    orthogonalDir = - orthogonalDir; //直行ベクトルが逆を向いてるため,逆ベクトルを取る
+                    float centerY = this.smokeObj.transform.localScale.y / 2.0f;
+                    this.smokeObj.transform.position = fingerTipPos + centerY * orthogonalDir;
+                    this.smokeObj.transform.rotation = Quaternion.FromToRotation(Vector3.up, orthogonalDir);
+                    /*
+                    //デバッグ
+                    GameObject s1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    s1.transform.position = fingerTipPos;
+                    s1.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+                    GameObject s2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                    s2.transform.position = this.smokeObj.transform.position;
+                    s2.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+                    */
+
                     this.openingBookDirector.Play();
                     this.isOpenedbook = true;
+
+                    this.bookBodyObj.GetComponent<BoxCollider>().enabled = true;
+                    this.bookUnderNavObj.GetComponent<BoxCollider>().enabled = true;
                 }
             }
         }
