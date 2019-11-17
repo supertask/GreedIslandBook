@@ -18,13 +18,13 @@ public class CardsController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N)) {
+        if (Input.GetKeyDown(KeyCode.J)) {
             if (this.director.state == PlayState.Paused) {
                 this.model.nextPage();
                 this.director.Play();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.B)) {
+        else if (Input.GetKeyDown(KeyCode.K)) {
             if (this.director.state == PlayState.Paused) {
                 this.model.previousPage();
                 this.director.Play();

@@ -57,7 +57,7 @@ public class BookController : MonoBehaviour
     void Update()
     {
         //ブックと唱える
-        if (Input.GetKeyDown(KeyCode.G)) {
+        if (Input.GetKeyDown(KeyCode.B)) {
             if (isOpenedbook) {
                 //ブックを閉じる（未実装）
             }
@@ -167,14 +167,14 @@ public class BookController : MonoBehaviour
         }
         */
 
-        if (Input.GetKeyDown(KeyCode.N)) {
+        if (Input.GetKeyDown(KeyCode.J)) {
             //ユーザが手を右にスライドさせたとき
             if (this.cardSlideDirector.state == PlayState.Paused) {
                 this.cardModel.nextPage();
                 this.cardSlideDirector.Play();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.B)) {
+        else if (Input.GetKeyDown(KeyCode.K)) {
             //ユーザが手を左にスライドさせたとき
             if (this.cardSlideDirector.state == PlayState.Paused) {
                 this.cardModel.previousPage();

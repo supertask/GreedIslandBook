@@ -44,7 +44,7 @@ public class GrabController : MonoBehaviour
     //
     // 指がブックバーに触れている状態
     //
-    void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
         if (! this.isFingersInCollider) { return; }
 

@@ -14,6 +14,21 @@ public class Util
         return null;
     }
 
+    public static void EnableMeshRendererRecursively(GameObject target, bool enabling)
+    {
+        if (target.GetComponent<MeshRenderer>() != null) {
+            target.GetComponent<MeshRenderer>().enabled = enabling;
+            return;
+        }
+        foreach (Transform child in target.GetComponentsInChildren<Transform>())
+        {
+            if (child.gameObject.GetComponent<MeshRenderer>() != null) {
+                child.gameObject.GetComponent<MeshRenderer>().enabled = enabling;
+            }
+        }
+        return;
+    }
+
     /// <summary>
     /// 指定された GameObject を複製して返します
     /// </summary>
