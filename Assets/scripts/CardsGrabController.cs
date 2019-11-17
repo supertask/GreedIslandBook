@@ -50,7 +50,7 @@ public class CardsGrabController : GrabController
             int assetIndex = int.Parse(match.Result("$1")) - 1; //asset index
             GameObject gainAsset = Instantiate( magicalAssets[assetIndex] );
             Util.EnableMeshRendererRecursively(gainAsset, false); //非表示にする
-            gainAsset.transform.position = this.transform.position + 0.1f * Vector3.up; //カードよりもちょい上目
+            gainAsset.transform.position = this.transform.position + 0.07f * Vector3.up; //カードよりもちょい上目
             gainAsset.transform.parent = gain.transform;
 
             //カードの消滅
