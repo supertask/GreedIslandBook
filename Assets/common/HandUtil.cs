@@ -60,8 +60,7 @@ public class HandUtil
         }
         else if (frame.Hands.Count == 1) {
             hands[LEFT] = frame.Hands[0].IsLeft ? frame.Hands[0] : null;
-            hands[RIGHT] = frame.Hands[0].IsRight ? frame.Hands[0] : null;
-        }
+            hands[RIGHT] = frame.Hands[0].IsRight ? frame.Hands[0] : null; }
         else { hands[LEFT] = hands[RIGHT] = null; }
         return hands;
     }

@@ -5,6 +5,11 @@ using UnityEngine;
 public class Util
 {
 
+    public static float Remap(float value, float low1, float high1, float low2, float high2) {
+            return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
+    }
+
+
     public static GameObject FindRecursively(GameObject target, string name)
     {
         foreach (Transform child in target.GetComponentsInChildren<Transform>())
@@ -27,6 +32,16 @@ public class Util
             }
         }
         return;
+    }
+
+    public static List<GameObject> FindColliderObjectsRecursively(GameObject target)
+    {
+        List<GameObject> colliderObjs = new List<GameObject>();
+        foreach (Transform child in target.GetComponentsInChildren<Transform>())
+        {
+            if (child.gameObject.GetComponent<Collider>() != null) { colliderObjs.Add(child.gameObject); }
+        }
+        return colliderObjs;
     }
 
     /// <summary>
