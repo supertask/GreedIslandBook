@@ -1,11 +1,108 @@
 fileFormatVersion: 2
 guid: 4aa4e758fb9731541bb735b6f3043a71
 ModelImporter:
-  serializedVersion: 19300
-  internalIDToNameTable: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arm
+    100002: ArmUI
+    100004: ArmUI_ButtonPosition1
+    100006: ArmUI_ButtonPosition2
+    100008: ArmUI_ButtonPosition3
+    100010: ArmUI_ButtonPosition4
+    100012: ArmUI_ButtonPosition5
+    100014: ArmUI_ButtonPosition6
+    100016: ArmUI_SystemButtonPosition1
+    100018: ArmUI_SystemButtonPosition2
+    100020: FirstHandWing
+    100022: FirstHandWing_App1
+    100024: FirstHandWing_App2
+    100026: FirstHandWing_App3
+    100028: FirstHandWing_App4
+    100030: FirstHandWing_App5
+    100032: FirstHandWing_App6
+    100034: FirstHandWing_App7
+    100036: PalmUI
+    100038: PalmUI__ButtonPosition1
+    100040: PalmUI__ButtonPosition2
+    100042: PalmUI__ButtonPosition3
+    100044: PalmUI__ButtonPosition4
+    100046: PalmUI__ButtonPosition5
+    100048: RightHand
+    100050: SecondtHandWing
+    100052: SecondtHandWing_App1
+    100054: SecondtHandWing_App2
+    100056: SecondtHandWing_App3
+    100058: SecondtHandWing_App4
+    100060: SecondtHandWing_App5
+    100062: SecondtHandWing_App6
+    100064: ThumbUI
+    100066: ThumbUI_Button
+    100068: //RootNode
+    400000: Arm
+    400002: ArmUI
+    400004: ArmUI_ButtonPosition1
+    400006: ArmUI_ButtonPosition2
+    400008: ArmUI_ButtonPosition3
+    400010: ArmUI_ButtonPosition4
+    400012: ArmUI_ButtonPosition5
+    400014: ArmUI_ButtonPosition6
+    400016: ArmUI_SystemButtonPosition1
+    400018: ArmUI_SystemButtonPosition2
+    400020: FirstHandWing
+    400022: FirstHandWing_App1
+    400024: FirstHandWing_App2
+    400026: FirstHandWing_App3
+    400028: FirstHandWing_App4
+    400030: FirstHandWing_App5
+    400032: FirstHandWing_App6
+    400034: FirstHandWing_App7
+    400036: PalmUI
+    400038: PalmUI__ButtonPosition1
+    400040: PalmUI__ButtonPosition2
+    400042: PalmUI__ButtonPosition3
+    400044: PalmUI__ButtonPosition4
+    400046: PalmUI__ButtonPosition5
+    400048: RightHand
+    400050: SecondtHandWing
+    400052: SecondtHandWing_App1
+    400054: SecondtHandWing_App2
+    400056: SecondtHandWing_App3
+    400058: SecondtHandWing_App4
+    400060: SecondtHandWing_App5
+    400062: SecondtHandWing_App6
+    400064: ThumbUI
+    400066: ThumbUI_Button
+    400068: //RootNode
+    2100000: No Name
+    2100002: Material_52.003
+    2300000: Arm
+    2300002: ArmUI
+    2300004: FirstHandWing
+    2300006: PalmUI
+    2300008: RightHand
+    2300010: SecondtHandWing
+    2300012: ThumbUI
+    2300014: ThumbUI_Button
+    3300000: Arm
+    3300002: ArmUI
+    3300004: FirstHandWing
+    3300006: PalmUI
+    3300008: RightHand
+    3300010: SecondtHandWing
+    3300012: ThumbUI
+    3300014: ThumbUI_Button
+    4300000: FirstHandWing
+    4300002: SecondtHandWing
+    4300004: PalmUI
+    4300006: ThumbUI
+    4300008: ThumbUI_Button
+    4300010: ArmUI
+    4300012: Arm
+    4300014: RightHand
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -38,7 +135,6 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -46,19 +142,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -67,10 +162,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -80,16 +175,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

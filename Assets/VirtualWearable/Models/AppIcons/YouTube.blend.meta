@@ -1,14 +1,22 @@
 fileFormatVersion: 2
-guid: e45b16e55bf76c04dbed4e978da9109e
+guid: 889a65dbba0368441b98a924441dbc6d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: VirtualWearable
+    100000: polygon9
+    100002: //RootNode
+    100004: YouTube2
+    400000: polygon9
+    400002: //RootNode
+    400004: YouTube2
+    2100000: YouTubeMat
+    2100002: SVGMat.002
+    2300000: polygon9
+    2300002: YouTube2
+    3300000: polygon9
+    3300002: YouTube2
+    4300000: YouTube2
+    4300002: polygon9
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -62,7 +70,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
+    previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

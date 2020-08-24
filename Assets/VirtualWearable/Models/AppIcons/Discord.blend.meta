@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: e45b16e55bf76c04dbed4e978da9109e
+guid: ae7560e655f53fe44918d575b3756e88
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: Discord
     2300000: //RootNode
     3300000: //RootNode
-    4300000: VirtualWearable
+    4300000: Curve.001
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -62,7 +62,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
+    previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
