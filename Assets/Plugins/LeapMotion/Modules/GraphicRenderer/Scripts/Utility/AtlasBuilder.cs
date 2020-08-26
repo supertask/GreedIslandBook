@@ -341,7 +341,7 @@ namespace Leap.Unity.GraphicalRenderer {
 
             progress.Step("Compressing Texture");
 #if UNITY_EDITOR
-            UnityEditor.EditorUtility.CompressTexture(tex, _format, (int)TextureCompressionQuality.Best);
+            UnityEditor.EditorUtility.CompressTexture(tex, _format, (int)UnityEditor.TextureCompressionQuality.Best);
 #endif
             tex.filterMode = _filterMode;
 

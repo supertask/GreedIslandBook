@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.VFX;
+using UnityEngine.Experimental.VFX;
 using Leap;
 using Leap.Unity;
 using static Leap.Finger;

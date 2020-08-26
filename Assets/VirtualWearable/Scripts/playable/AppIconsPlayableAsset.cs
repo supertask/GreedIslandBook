@@ -25,7 +25,6 @@ namespace VW
             behaviour.appIndex = this.appIndex;
             behaviour.isScalingUp = this.isScalingUp;
             behaviour.applyAllIcons = this.applyAllIcons;
-
             return ScriptPlayable<AppIconsPlayableBehaviour>.Create(graph, behaviour);
         }
     }

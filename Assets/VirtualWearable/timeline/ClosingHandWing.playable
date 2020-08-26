@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c692fac46205bd442a34e35c1cf299f5, type: 3}
   m_Name: VWPlayableAsset
   m_EditorClassIdentifier: 
-  entireHandUI:
-    exposedName: a5808fad16b62414cb4ab083dd94f555
+  vw:
+    exposedName: 92b4c0d065499a5459d03053f26bcbd0
     defaultValue: {fileID: 0}
   targetVWAlpha: 1
   maxWingLeftVerticalClipPercent: 0

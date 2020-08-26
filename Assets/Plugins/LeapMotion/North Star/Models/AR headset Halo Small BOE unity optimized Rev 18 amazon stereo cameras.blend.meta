@@ -18,6 +18,20 @@ ModelImporter:
     100024: Part_Studio_1__4_
     100026: RIGEL_L_Lens_Location
     100028: RIGEL_R_Lens_Location
+    100030: Display L Eye Active Area
+    100032: Display R Eye Active Area
+    100034: Eye Calibration Bottom L
+    100036: Eye Calibration Bottom R
+    100038: Eye Calibration Top L
+    100040: Eye Calibration Top R
+    100042: Foci L Eye A
+    100044: Foci L Eye B
+    100046: Foci R Eye A
+    100048: Foci R Eye B
+    100050: Headset Mesh.001
+    100052: Part Studio 1 (4)
+    100054: RIGEL L Lens Location
+    100056: RIGEL R Lens Location
     400000: //RootNode
     400002: Display_L_Eye_Active_Area
     400004: Display_R_Eye_Active_Area
@@ -33,10 +47,27 @@ ModelImporter:
     400024: Part_Studio_1__4_
     400026: RIGEL_L_Lens_Location
     400028: RIGEL_R_Lens_Location
+    400030: Display L Eye Active Area
+    400032: Display R Eye Active Area
+    400034: Eye Calibration Bottom L
+    400036: Eye Calibration Bottom R
+    400038: Eye Calibration Top L
+    400040: Eye Calibration Top R
+    400042: Foci L Eye A
+    400044: Foci L Eye B
+    400046: Foci R Eye A
+    400048: Foci R Eye B
+    400050: Headset Mesh.001
+    400052: Part Studio 1 (4)
+    400054: RIGEL L Lens Location
+    400056: RIGEL R Lens Location
     2100000: Calibration_Rigel
     2100002: unnamed
     2100004: Foci
     2100006: Rigel_Related
+    2100008: Calibration Rigel
+    2100010: Rigel Related
+    2100012: No Name
     2300000: Display_L_Eye_Active_Area
     2300002: Display_R_Eye_Active_Area
     2300004: Eye_Calibration_Bottom_L
@@ -51,6 +82,20 @@ ModelImporter:
     2300022: Part_Studio_1__4_
     2300024: RIGEL_L_Lens_Location
     2300026: RIGEL_R_Lens_Location
+    2300028: Display L Eye Active Area
+    2300030: Display R Eye Active Area
+    2300032: Eye Calibration Bottom L
+    2300034: Eye Calibration Bottom R
+    2300036: Eye Calibration Top L
+    2300038: Eye Calibration Top R
+    2300040: Foci L Eye A
+    2300042: Foci L Eye B
+    2300044: Foci R Eye A
+    2300046: Foci R Eye B
+    2300048: Headset Mesh.001
+    2300050: Part Studio 1 (4)
+    2300052: RIGEL L Lens Location
+    2300054: RIGEL R Lens Location
     3300000: Display_L_Eye_Active_Area
     3300002: Display_R_Eye_Active_Area
     3300004: Eye_Calibration_Bottom_L
@@ -65,6 +110,20 @@ ModelImporter:
     3300022: Part_Studio_1__4_
     3300024: RIGEL_L_Lens_Location
     3300026: RIGEL_R_Lens_Location
+    3300028: Display L Eye Active Area
+    3300030: Display R Eye Active Area
+    3300032: Eye Calibration Bottom L
+    3300034: Eye Calibration Bottom R
+    3300036: Eye Calibration Top L
+    3300038: Eye Calibration Top R
+    3300040: Foci L Eye A
+    3300042: Foci L Eye B
+    3300044: Foci R Eye A
+    3300046: Foci R Eye B
+    3300048: Headset Mesh.001
+    3300050: Part Studio 1 (4)
+    3300052: RIGEL L Lens Location
+    3300054: RIGEL R Lens Location
     4300000: Eye_Calibration_Top_R
     4300002: Eye_Calibration_Top_L
     4300004: Eye_Calibration_Bottom_L
@@ -79,6 +138,20 @@ ModelImporter:
     4300022: Display_L_Eye_Active_Area
     4300024: Display_R_Eye_Active_Area
     4300026: Part_Studio_1__4_
+    4300028: Eye Calibration Top R
+    4300030: Eye Calibration Top L
+    4300032: Eye Calibration Bottom L
+    4300034: Eye Calibration Bottom R
+    4300036: Foci L Eye A
+    4300038: Foci L Eye B
+    4300040: Foci R Eye B
+    4300042: Foci R Eye A
+    4300044: RIGEL L Lens Location
+    4300046: RIGEL R Lens Location
+    4300048: Part Studio 1 (4)
+    4300050: Headset Mesh.001
+    4300052: Display L Eye Active Area
+    4300054: Display R Eye Active Area
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -115,6 +188,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -139,6 +213,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

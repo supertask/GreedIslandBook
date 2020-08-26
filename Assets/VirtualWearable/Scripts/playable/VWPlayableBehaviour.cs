@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 // A behaviour that is attached to a playable
 public class VWPlayableBehaviour : PlayableBehaviour
 {
-    public GameObject entireHandUI;
+    public GameObject vw;
 
     public float targetVWAlpha;
     private float srcVWAlpha;
@@ -34,10 +34,10 @@ public class VWPlayableBehaviour : PlayableBehaviour
         //this.handWingObj.GetComponent<MeshRenderer>().enabled = true;
         //this.handPalmObj.GetComponent<MeshRenderer>().enabled = true;
 
-        this.handWingObj = this.entireHandUI.gameObject.transform.Find("FirstHandWingUI").gameObject;
-        this.handWingUpperObj = this.entireHandUI.gameObject.transform.Find("SecondHandWingUI").gameObject;
-        this.thumbButtonObj = this.entireHandUI.gameObject.transform.Find("ThumbUI").gameObject;
-        this.handPalmObj = this.entireHandUI.gameObject.transform.Find("PalmUI").gameObject;
+        this.handWingObj = this.vw.gameObject.transform.Find("FirstHandWingUI").gameObject;
+        this.handWingUpperObj = this.vw.gameObject.transform.Find("SecondHandWingUI").gameObject;
+        this.thumbButtonObj = this.vw.gameObject.transform.Find("ThumbUI").gameObject;
+        this.handPalmObj = this.vw.gameObject.transform.Find("PalmUI").gameObject;
 
         this.srcVWAlpha = this.handWingObj.GetComponent<MeshRenderer>().sharedMaterial.GetFloat("_Transparent");
     }

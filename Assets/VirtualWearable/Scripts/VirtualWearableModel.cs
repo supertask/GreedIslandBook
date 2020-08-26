@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.VFX;
+using UnityEngine.Experimental.VFX;
 using Leap;
 using Leap.Unity;
 using static Leap.Finger;
@@ -60,15 +60,18 @@ namespace VW
             this.MoveChildren(this.secondAppIcons, this.secondHandWingUI);
             this.MoveChildren(this.palmUIIcons, this.palmUI);
 
+            /*
             Debug.Log("d2");
             foreach (Transform child in this.firstHandWingUI.transform) {
                 if (child.GetChildCount() > 0) {
                     Transform grandChild = child.GetChild(0);
                     Debug.Log(grandChild.localRotation);
                 }
-            }
+            }*/
 
             this.handUtil = new HandUtil(playerHeadTransform);
+            Debug.Log("handUtil: " + handUtil);
+
             this.isVisibleVirtualWearable = false;
         }
 
@@ -85,9 +88,10 @@ namespace VW
 
                 //s.localRotation = Quaternion.Euler(0, 0, 0);
 
+                /*
                 Debug.Log("Name: " + sourceParent.gameObject.name);
                 Debug.Log("Child Name: " + s.gameObject.name);
-                Debug.Log("Rotation1: " + s.localRotation);
+                Debug.Log("Rotation1: " + s.localRotation);*/
             }
         }
 

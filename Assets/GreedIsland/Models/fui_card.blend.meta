@@ -1,14 +1,38 @@
 fileFormatVersion: 2
 guid: 99192bf4b9179034884310a99d9a5151
 ModelImporter:
-  serializedVersion: 28
-  internalIDToNameTable:
-  - first:
-      74: 1989289236423521904
-    second: Default Take
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CardBody
+    100002: CardDescription
+    100004: CardImage
+    100006: //RootNode
+    100008: LineBottom
+    100010: LineTop
+    400000: CardBody
+    400002: CardDescription
+    400004: CardImage
+    400006: //RootNode
+    400008: LineBottom
+    400010: LineTop
+    2100000: Material
+    2100002: No Name
+    2300000: CardBody
+    2300002: CardImage
+    2300004: LineBottom
+    2300006: LineTop
+    3300000: CardBody
+    3300002: CardImage
+    3300004: LineBottom
+    3300006: LineTop
+    4300000: LineBottom
+    4300002: CardBody
+    4300004: LineTop
+    4300006: CardImage
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -41,7 +65,6 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -49,19 +72,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -70,10 +92,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -83,7 +105,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -91,7 +112,6 @@ ModelImporter:
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

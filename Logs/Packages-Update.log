@@ -62,3 +62,32 @@ The following packages were updated:
   com.unity.render-pipelines.high-definition from version 7.1.7 to 7.3.1
   com.unity.render-pipelines.universal from version 7.1.7 to 7.3.1
   com.unity.test-framework from version 1.1.9 to 1.1.13
+
+=== Tue May 12 22:35:45 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.vscode from version 1.1.4 to 1.2.0
+
+=== Fri Jul 24 19:55:39 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.test-framework from version 1.1.13 to 1.1.14
+
+=== Thu Aug 20 01:13:01 2020
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.2d.sprite@1.0.0
+  com.unity.2d.tilemap@1.0.0
+  com.unity.multiplayer-hlapi@1.0.6
+  com.unity.xr.legacyinputhelpers@2.1.4
+The following packages were updated:
+  com.unity.ide.vscode from version 1.2.0 to 1.2.1

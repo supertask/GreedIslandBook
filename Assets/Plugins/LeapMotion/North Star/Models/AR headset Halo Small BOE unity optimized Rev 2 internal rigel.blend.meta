@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: c3d05b4385156ac40b24969cd496474f
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Display_L_Eye_Active_Area
@@ -13,6 +13,15 @@ ModelImporter:
     100014: Headset_Mesh_001
     100016: RIGEL_L_Lens_Location
     100018: RIGEL_R_Lens_Location
+    100020: Display L Eye Active Area
+    100022: Display R Eye Active Area
+    100024: Foci L Eye A
+    100026: Foci L Eye B
+    100028: Foci R Eye A
+    100030: Foci R Eye B
+    100032: Headset Mesh.001
+    100034: RIGEL L Lens Location
+    100036: RIGEL R Lens Location
     400000: //RootNode
     400002: Display_L_Eye_Active_Area
     400004: Display_R_Eye_Active_Area
@@ -23,9 +32,20 @@ ModelImporter:
     400014: Headset_Mesh_001
     400016: RIGEL_L_Lens_Location
     400018: RIGEL_R_Lens_Location
+    400020: Display L Eye Active Area
+    400022: Display R Eye Active Area
+    400024: Foci L Eye A
+    400026: Foci L Eye B
+    400028: Foci R Eye A
+    400030: Foci R Eye B
+    400032: Headset Mesh.001
+    400034: RIGEL L Lens Location
+    400036: RIGEL R Lens Location
     2100000: unnamed
     2100002: Foci
     2100004: Rigel_Related
+    2100006: No Name
+    2100008: Rigel Related
     2300000: Display_L_Eye_Active_Area
     2300002: Display_R_Eye_Active_Area
     2300004: Foci_L_Eye_A
@@ -35,6 +55,15 @@ ModelImporter:
     2300012: Headset_Mesh_001
     2300014: RIGEL_L_Lens_Location
     2300016: RIGEL_R_Lens_Location
+    2300018: Display L Eye Active Area
+    2300020: Display R Eye Active Area
+    2300022: Foci L Eye A
+    2300024: Foci L Eye B
+    2300026: Foci R Eye A
+    2300028: Foci R Eye B
+    2300030: Headset Mesh.001
+    2300032: RIGEL L Lens Location
+    2300034: RIGEL R Lens Location
     3300000: Display_L_Eye_Active_Area
     3300002: Display_R_Eye_Active_Area
     3300004: Foci_L_Eye_A
@@ -44,6 +73,15 @@ ModelImporter:
     3300012: Headset_Mesh_001
     3300014: RIGEL_L_Lens_Location
     3300016: RIGEL_R_Lens_Location
+    3300018: Display L Eye Active Area
+    3300020: Display R Eye Active Area
+    3300022: Foci L Eye A
+    3300024: Foci L Eye B
+    3300026: Foci R Eye A
+    3300028: Foci R Eye B
+    3300030: Headset Mesh.001
+    3300032: RIGEL L Lens Location
+    3300034: RIGEL R Lens Location
     4300000: Headset_Mesh_001
     4300002: Foci_L_Eye_A
     4300004: Foci_L_Eye_B
@@ -53,6 +91,15 @@ ModelImporter:
     4300012: RIGEL_R_Lens_Location
     4300014: Display_L_Eye_Active_Area
     4300016: Display_R_Eye_Active_Area
+    4300018: Headset Mesh.001
+    4300020: Foci L Eye A
+    4300022: Foci L Eye B
+    4300024: Foci R Eye B
+    4300026: Foci R Eye A
+    4300028: RIGEL L Lens Location
+    4300030: RIGEL R Lens Location
+    4300032: Display L Eye Active Area
+    4300034: Display R Eye Active Area
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -89,6 +136,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -106,11 +154,16 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -125,7 +178,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

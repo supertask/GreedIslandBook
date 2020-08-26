@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 [System.Serializable]
 public class VWPlayableAsset : PlayableAsset
 {
-    public ExposedReference<GameObject> entireHandUI;
+    public ExposedReference<GameObject> vw;
 
     //Timelineでいじるパラメータ
     public float targetVWAlpha;
@@ -19,7 +19,7 @@ public class VWPlayableAsset : PlayableAsset
     {
         //behaviourに対してパラメータを入れ込んでいく
         VWPlayableBehaviour behaviour = new VWPlayableBehaviour();
-        behaviour.entireHandUI =  this.entireHandUI.Resolve(graph.GetResolver()); //ExposedReferenceからとる時のおまじない
+        behaviour.vw =  this.vw.Resolve(graph.GetResolver()); //ExposedReferenceからとる時のおまじない
 
         behaviour.targetVWAlpha = this.targetVWAlpha;
         behaviour.maxWingLeftVerticalClipPercent = this.maxWingLeftVerticalClipPercent;
