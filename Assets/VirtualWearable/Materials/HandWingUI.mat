@@ -180,7 +180,7 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
-    - _LeftVerticalClipPercent: 0.010705948
+    - _LeftVerticalClipPercent: 0.0075398684
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
@@ -222,7 +222,7 @@ Material:
     - _Thickness: 1
     - _TopHorizontalClipPercent: 0
     - _TransmissionEnable: 1
-    - _Transparent: 0.70214117
+    - _Transparent: 0.701508
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0

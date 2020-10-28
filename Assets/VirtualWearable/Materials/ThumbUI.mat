@@ -220,9 +220,9 @@ Material:
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
-    - _TopHorizontalClipPercent: 0.010705948
+    - _TopHorizontalClipPercent: 0.0075398684
     - _TransmissionEnable: 1
-    - _Transparent: 0.70214117
+    - _Transparent: 0.701508
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0

@@ -18,7 +18,7 @@ namespace VW
         public bool applyAllIcons;
 
         private List<GameObject> handWingUIs;
-        private List<List<Quaternion>> localRotationsOfAppIcons;
+        //private List<List<Quaternion>> localRotationsOfAppIcons;
 
 
         // Called when the owning graph starts playing
@@ -47,29 +47,20 @@ namespace VW
             this.handWingUIs = new List<GameObject>();
             this.handWingUIs.Add(this.vw.transform.Find("FirstHandWingUI").gameObject);
             this.handWingUIs.Add(this.vw.transform.Find("SecondHandWingUI").gameObject);
-            this.localRotationsOfAppIcons = new List<List<Quaternion>>();
+            //this.localRotationsOfAppIcons = new List<List<Quaternion>>();
 
             //TODO: ここの処理を最初だけにする -> Modelで作ってそれをここに渡す
             for (int hi = 0; hi < this.handWingUIs.Count; hi++)
             {
-                this.localRotationsOfAppIcons.Add(new List<Quaternion>());
                 foreach (Transform child in this.handWingUIs[hi].transform) {
                     if (child.childCount > 0) {
-                        this.localRotationsOfAppIcons[hi].Add(child.GetChild(0).localRotation);
+                        //this.localRotationsOfAppIcons[hi].Add(child.GetChild(0).localRotation);
+                        child.GetChild(0).localScale = new Vector3(Constants.App.Size, Constants.App.Size, Constants.App.Size);
                     }
                 }
-
-                /*
-                for (int ai = 0; ai < this.handWingUIs[i].transform.childCount; ai++)
-                {
-                    Transform child = this.handWingUIs[i].transform.GetChild(ai);
-                    if (child.childCount > 0) {
-                        Debug.Log(this.localRotationsOfAppIcons[i][ai]);
-                    }
-                }*/
             }
-            this.PopupIcons(0.0f);
 
+            this.PopupIcons(0.0f);
         }
 
         public override void OnPlayableDestroy(Playable playable)
@@ -96,37 +87,43 @@ namespace VW
 
         private void PopupIcons(float progress)
         {
-            Vector3 beginScale, endScale;
-            float beginPosY, endPosY, beginRotAngle, endRotAngle;
+            //Vector3 beginScale, endScale;
+            float beginPosY, endPosY; //, beginRotAngle, endRotAngle;
             if (isScalingUp) {
-                beginScale = Vector3.zero;
+                //beginScale = Vector3.zero;
                 beginPosY = 0.0f;
-                beginRotAngle = Constants.App.LocalRotationBeginAngle;
-                endScale = new Vector3(Constants.App.Size, Constants.App.Size, Constants.App.Size);
                 endPosY = Constants.App.LocalPositionY;
-                endRotAngle = Constants.App.LocalRotationEndAngle;
+                //beginRotAngle = Constants.App.LocalRotationBeginAngle;
+                //endScale = new Vector3(Constants.App.Size, Constants.App.Size, Constants.App.Size);
+                //endRotAngle = Constants.App.LocalRotationEndAngle;
             } else {
-                beginScale = new Vector3(Constants.App.Size, Constants.App.Size, Constants.App.Size);
                 beginPosY = Constants.App.LocalPositionY;
-                beginRotAngle = Constants.App.LocalRotationEndAngle;
-                endScale = Vector3.zero;
                 endPosY = 0.0f;
-                endRotAngle = Constants.App.LocalRotationBeginAngle;
+                //beginScale = new Vector3(Constants.App.Size, Constants.App.Size, Constants.App.Size);
+                //beginRotAngle = Constants.App.LocalRotationEndAngle;
+                //endScale = Vector3.zero;
+                //endRotAngle = Constants.App.LocalRotationBeginAngle;
             }
-            Vector3 scale = Vector3.Lerp(beginScale, endScale, progress);
-            float rotAngle = Mathf.Lerp(beginRotAngle, endRotAngle, progress);
+            //Vector3 scale = Vector3.Lerp(beginScale, endScale, progress);
+            //float rotAngle = Mathf.Lerp(beginRotAngle, endRotAngle, progress);
             float posY = Mathf.Lerp(beginPosY, endPosY, progress);
+            //Vector3 scale = new Vector3(Constants.App.Size, Constants.App.Size, Constants.App.Size);
             //Debug.Log(posY);
+
+            Debug.Log("Count: " + this.handWingUIs.Count);
 
             for (int hi = 0; hi < this.handWingUIs.Count; hi++)
             {
+                Debug.Log("childCount: " + this.handWingUIs[hi].transform.childCount);
+
                 if (this.applyAllIcons) {
                     for (int ai = 0; ai < this.handWingUIs[hi].transform.childCount; ai++) {
                         Transform child = this.handWingUIs[hi].transform.GetChild(ai);
                         if (child.childCount > 0) {
                             Transform grandChild = child.GetChild(0);
-                            grandChild.localScale = scale;
+                            //grandChild.localScale = scale;
                             grandChild.localPosition = Vector3.forward * posY;
+                            Debug.Log("grandChildNameAll: " + grandChild.name);
                             /*
                             grandChild.rotation = this.localRotationsOfAppIcons[hi][ai] *
                                 Quaternion.AngleAxis(90, Vector3.up);
@@ -142,13 +139,14 @@ namespace VW
                     if (child.childCount > 0) {
                         Transform grandChild = child.GetChild(0);
                         //Debug.Log(child.localPosition.y);
+                        Debug.Log("grandChildName on each: " + grandChild.name);
 
-                        grandChild.localScale = scale;
+                        //grandChild.localScale = scale;
                         grandChild.localPosition = Vector3.forward * posY;
 
                         //Debug.Log(appIndex);
-                        grandChild.localRotation = this.localRotationsOfAppIcons[hi][this.appIndex] *
-                            Quaternion.AngleAxis(Mathf.Lerp(180.0f, 360.0f, progress), Vector3.up);
+                        //grandChild.localRotation = this.localRotationsOfAppIcons[hi][this.appIndex] *
+                        //    Quaternion.AngleAxis(Mathf.Lerp(180.0f, 360.0f, progress), Vector3.up);
 
                         //grandChild.localRotation = child.localRotation * Quaternion.AngleAxis(270, Vector3.left) *
                         //   Quaternion.AngleAxis( Mathf.Lerp(0, Constants.App.LocalRotationEndAngle, progress), Vector3.up);

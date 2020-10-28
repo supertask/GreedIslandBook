@@ -8,8 +8,10 @@ namespace VW
     {
         public class App
         {
-            public static float Size = 3.0f;
-            public static float LocalPositionY = 0.018f;
+            //public static float Size = 3.0f;
+            public static float Size = 2.4f;
+            //public static float LocalPositionY = 0.018f;
+            public static float LocalPositionY = 0.028f;
             public static float LocalRotationBeginAngle = 0.0f;
             public static float LocalRotationEndAngle = 360.0f;
         }

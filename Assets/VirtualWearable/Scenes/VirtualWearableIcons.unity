@@ -1402,6 +1402,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 9ec4d03dfbfe77b4d89ca648c8d946e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ec4d03dfbfe77b4d89ca648c8d946e1, type: 3}
+--- !u!1 &381053583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0993510ae086354187099e32c2eddc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1263209315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &411427823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2540,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c0993510ae086354187099e32c2eddc0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0993510ae086354187099e32c2eddc0,
         type: 3}
@@ -2892,18 +2898,23 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
+    - 0fcfafeee6213ea4a959752b250dd050: {fileID: 1675034204}
     - 543d4e01a4be1a143857e7163ccca5ad: {fileID: 0}
     - aae30328270770348b6db042cc80866d: {fileID: 2075034547}
+    - 67a9b7bb0ecdb224085b4c6af67ef6b3: {fileID: 381053583}
     - 96719ff2522c33d47bb80238ee11c2fc: {fileID: 1675034204}
     - 0a6f62832cf804349b1efc57e9c3cb49: {fileID: 1675034204}
     - 48ba55dda3c8a5347b21a14506eed2fe: {fileID: 1675034204}
     - 9d7ae1a84b2cfd5448c686a2f51e4aba: {fileID: 2075034547}
     - 8f7f2a92968749148a0244a7fc29bd84: {fileID: 2075034547}
     - 297c38b101366b64ca12ae3a05d921ea: {fileID: 1675034204}
+    - 1665dd2fafb2a0e4db69025b14db9cb0: {fileID: 1675034204}
     - a5808fad16b62414cb4ab083dd94f555: {fileID: 0}
+    - 7f2a050617f56134988f379ccd732765: {fileID: 381053583}
     - c22d676099a2542478453ea62ff180a9: {fileID: 2075034547}
     - f9c469b47ff79d1438b9e958ac2d4e78: {fileID: 1675034204}
     - 9d0b549ebd36fd2438fcdde3258361f6: {fileID: 1675034204}
+    - 5005653414f7b884baddd171cb6f82e9: {fileID: 1926420898}
     - f93a2d9d6402db747b2a5e25ccefaccf: {fileID: 2075034547}
 --- !u!114 &1329558790
 MonoBehaviour:
@@ -3314,6 +3325,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedGuid: d6f3377fb83a4a469a5a18f3cd07b02b
+--- !u!1 &1926420898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3297622425387607761, guid: 9ec4d03dfbfe77b4d89ca648c8d946e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 380727537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2075034547
 GameObject:
   m_ObjectHideFlags: 0

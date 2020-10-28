@@ -58,6 +58,9 @@ namespace VW
                 //this.debugSphere1.transform.position = HandUtil.ToVector3(hand.Arm.PrevJoint);
                 //this.debugSphere2.transform.position = HandUtil.ToVector3(hand.Arm.NextJoint);
             }
+
+            //Debug.Log("handUtilAccess: " + this.model.handUtilAccess);
+            //Debug.Log("hands: " + hands);
             this.model.handUtilAccess.SavePreviousHands(hands);
         }
     }
